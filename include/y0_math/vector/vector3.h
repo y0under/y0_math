@@ -5,7 +5,7 @@
 
 namespace y0_math {
   namespace vector {
-    template<typename T>
+s   template<typename T>
       struct Vector3 {
         public:
           /**
@@ -177,7 +177,7 @@ namespace y0_math {
             T square_length = SquareLength();
             if (square_length <= static_cast<T>(0))
               return;
-            T inverse_of_len = static_cast<T>(1) / Sqrt(square_length);
+            T inverse_of_len = static_cast<T>(1) / MathUtil::sqrt(square_length);
             x *= inverse_of_len;
             y *= inverse_of_len;
             z *= inverse_of_len;
@@ -201,7 +201,7 @@ namespace y0_math {
            * @return 
            */
           static T Norm(const Vector3 &v) {
-            return MathUtil::Sqrt(v.SquareLength());
+            return MathUtil::sqrt(v.SquareLength());
           }
 
           static Vector3 CrossProduct(const Vector3 &lhs, const Vector3 &rhs) {
@@ -214,7 +214,7 @@ namespace y0_math {
             T dx = lhs.x - rhs.x;
             T dy = lhs.y - rhs.y;
             T dz = lhs.z - rhs.z;
-            return MathUtil::Sqrt(dx * dx + dy * dy + dz * dz);
+            return MathUtil::sqrt(dx * dx + dy * dy + dz * dz);
           }
 
           // variable
